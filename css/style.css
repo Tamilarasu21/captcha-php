@@ -1,0 +1,42 @@
+body
+{
+    font-family: sans-serif;
+    text-align: center;
+}
+.main{
+    margin-top: 20px;
+    font-size: 50px;
+}
+input[type=number]
+{
+    width:300px;
+    height:60px;
+    border-radius:5px;
+    padding-top:20px;
+    padding:5px 10px;
+    font-size:25px;
+}
+input[type=submit]
+{
+    font-size:16px;
+    width:200px;
+    height:30px;
+    background-color: black;
+    color:white;
+    border-radius:5px;
+    border:1px solid black;
+}
+[type=submit]:hover
+{
+    background:whitesmoke;
+    color:blue;
+}
+.msg{
+    float:top;
+    margin-bottom: 1200px;
+}
+.msg .error
+{
+    
+    color:red;
+}

@@ -28,40 +28,42 @@ $_SESSION["answer"]=$answer;
  <!DOCTYPE html>
  <html>
  <head>
- 	<title>captcha_verification2</title>
- 	<style type="text/css">
- 		body
- 		{
- 			font-family: sans-serif;
- 			text-align: center;
- 		}
- 		.main{
- 			margin-top: 200px;
- 			font-size: 50px;
- 		}
- 		input[type=number]
- 		{
- 			width:300px;
- 			height:40px;
- 		}
- 		input[type=submit]
- 		{
-			width:200px;
- 			height:40px;
- 			background-color: black;
- 			color:white;
- 		}
- 	</style>
+ 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+ 	<title>captcha_verification</title>
+	<link rel="stylesheet" href="css/style.css">
  </head>
  <body>
  	<div class="main">
+		 <h4>solve this captcha</h4>
  <form method="post" action="process.php">
- 	<?php echo $first_num ." ".$operator." ".$second_num." = " ?>
+	 <?php echo $first_num ." ".$operator." ".$second_num." = " ?>
  	<input type="number" name="answer"><br>
- 	<input type="submit" name="submit" value="check">
+	 <input type="submit" name="submit" value="check">
  </form>
+ </div>
+ <div class=msg>
+ <?php
+	$fulUrl="http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+	
+	if(strpos($fulUrl,"process=empty")==true)
+	{
+		echo "<p class='error'>captcha can't be empty</p>";
+		exit();
+	}
+	elseif(strpos($fulUrl,"process=correct")==true)
+	{
+		echo "<p class='error'>correct</p>";
+		exit();
+	}
+	elseif(strpos($fulUrl,"process=wrong")==true)
+	{
+		echo "<p class='error'>wrong</p>";
+		exit();
+	}	
+?>  
  </div>
  </body>
  </html>
- 
 
+ 
